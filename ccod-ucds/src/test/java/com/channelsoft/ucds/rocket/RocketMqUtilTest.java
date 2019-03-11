@@ -1,4 +1,4 @@
-package com.channelsoft.ucds;
+package com.channelsoft.ucds.rocket;
 
 import com.alibaba.fastjson.JSONObject;
 import com.channelsoft.common.message.MessageMakeCall;
@@ -17,7 +17,7 @@ import java.util.List;
  * @author sicwen
  * @date 2019/03/07
  */
-public class RocketMQTest {
+public class RocketMqUtilTest {
     @Test
     public void testRocketMQClient() throws Exception{
         for (int i = 0; i < 30; i++) {

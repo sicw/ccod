@@ -1,4 +1,4 @@
-package com.channelsoft.common.util.redis;
+package com.channelsoft.common.redis;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -2,12 +2,13 @@ package com.channelsoft.ucds.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.channelsoft.common.message.MessageMakeCall;
-import com.channelsoft.common.util.redis.JedisUtil;
-import com.channelsoft.common.util.rocketmq.RocketMqUtil;
+import com.channelsoft.common.redis.JedisUtil;
+import com.channelsoft.common.rocketmq.RocketmqUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import redis.clients.jedis.JedisCluster;
 
 import java.util.HashMap;
@@ -28,7 +29,7 @@ public class MakeCallController {
     private JedisCluster jc = JedisUtil.getRedisClient();
 
     @RequestMapping("/makecall")
-    public String makeCall(String caller,String called,String agentid){
+    public ModelAndView makeCall(String caller, String called, String username){
         /*store msg to redis*/
         Map<String,String> map = new HashMap<>();
         //get enterpriseid from session
@@ -37,7 +38,7 @@ public class MakeCallController {
         map.put("sessionid",sessionId);
         map.put("caller",caller);
         map.put("called",called);
-        map.put("agentid",agentid);
+        map.put("username",username);
         //status: new alerting connected drop
         map.put("callerstatus","new");
         map.put("calledstatus","new");
@@ -54,13 +55,13 @@ public class MakeCallController {
         messageMakeCall.setCalled(called);
         messageMakeCall.setSessionId(sessionId);
         String command = JSONObject.toJSONString(messageMakeCall);
-        Boolean isOk = RocketMqUtil.send("messageMakeCall",command.getBytes());
-        if(isOk == true){
-            logger.info("ucds send MessageMakeCall success {}",messageMakeCall);
-        }else{
-            logger.error("ucds send MessageMakeCall failed {}",messageMakeCall);
-        }
+        RocketmqUtil.send(sessionId,"messageMakeCall",command.getBytes());
+        logger.info("send message {}",messageMakeCall);
+
+        ModelAndView mv = new ModelAndView("status");
+        mv.getModel().put("username",username);
+        mv.getModel().put("sessionId",sessionId);
         //返回状态给坐席端
-        return "response";
+        return mv;
     }
 }

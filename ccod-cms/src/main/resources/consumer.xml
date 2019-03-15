@@ -2,22 +2,46 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
-                           http://dubbo.apache.org/schema/dubbo
-                           http://dubbo.apache.org/schema/dubbo/dubbo.xsd
+                           http://code.alibabatech.com/schema/dubbo
+                            http://code.alibabatech.com/schema/dubbo/dubbo.xsd
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context-4.3.xsd
                             ">
 
     <context:component-scan base-package="com.channelsoft.cms.*"/>
 
+    <!--<bean id="producerFactory" init-method="refreshProducers" class="com.channelsoft.common.rocketmq.support.CacheProducerFactoryImpl">-->
+        <!--<property name="nameServerAddress" value="10.130.41.36:9876"/>-->
+        <!--<property name="retyTimesWhenSendFailed" value="3"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="makeCallHandler" class="com.channelsoft.cms.consumers.message.MakeCallMessageListenerOrderly"/>-->
+
+    <!--<bean id="consumerFactory" init-method="refreshConsumers" class="com.channelsoft.common.rocketmq.support.CacheConsumerFactoryImpl">-->
+        <!--<property name="nameSrvAddress" value="10.130.41.36:9876"/>-->
+        <!--<property name="tagAndMessageHandlers">-->
+            <!--<list>-->
+                <!--<bean id="tagAndMessageHandler" class="com.channelsoft.common.rocketmq.TagAndMessageHandler">-->
+                    <!--<property name="tag" value="messageMakeCall"/>-->
+                    <!--<property name="messageListenerOrderly" ref="makeCallHandler"/>-->
+                <!--</bean>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean id="rocketManager" class="com.channelsoft.common.rocketmq.RocketMqManager">-->
+        <!--<property name="producerFactory" ref="producerFactory"/>-->
+        <!--<property name="consumerFactory" ref="consumerFactory"/>-->
+    <!--</bean>-->
+
     <!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
-    <dubbo:application name="consumer-ccod">
+    <dubbo:application name="consumer-ccod"/>
         <!--占用22222端口-->
-        <dubbo:parameter key="qos.enable" value="false"/>
-    </dubbo:application>
+        <!--<dubbo:parameter key="qos.enable" value="false"/>-->
+    <!--</dubbo:application>-->
     <!-- 使用multicast广播注册中心暴露发现服务地址 -->
     <dubbo:registry address="zookeeper://localhost:2181" />
 

@@ -13,6 +13,30 @@
 
     <context:component-scan base-package="com.channelsoft.ucds.*"/>
 
+    <!--<bean id="producerFactory" init-method="refreshProducers" class="com.channelsoft.common.rocketmq.support.CacheProducerFactoryImpl">-->
+        <!--<property name="nameServerAddress" value="10.130.41.36:9876"/>-->
+        <!--<property name="retyTimesWhenSendFailed" value="3"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="replyMakeCallHandler" class="com.channelsoft.ucds.consumers.ReplyMakeCallMessageListenerOrderly"/>-->
+
+    <!--<bean id="consumerFactory" init-method="refreshConsumers" class="com.channelsoft.common.rocketmq.support.CacheConsumerFactoryImpl">-->
+        <!--<property name="nameSrvAddress" value="10.130.41.36:9876"/>-->
+        <!--<property name="tagAndMessageHandlers">-->
+            <!--<list>-->
+                <!--<bean id="tagAndMessageHandler" class="com.channelsoft.common.rocketmq.TagAndMessageHandler">-->
+                    <!--<property name="tag" value="replyMakeCall"/>-->
+                    <!--<property name="messageListenerOrderly" ref="replyMakeCallHandler"/>-->
+                <!--</bean>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean id="rocketManager" class="com.channelsoft.common.rocketmq.RocketMqManager">-->
+        <!--<property name="producerFactory" ref="producerFactory"/>-->
+        <!--<property name="consumerFactory" ref="consumerFactory"/>-->
+    <!--</bean>-->
+
     <mvc:annotation-driven/>
 
     <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

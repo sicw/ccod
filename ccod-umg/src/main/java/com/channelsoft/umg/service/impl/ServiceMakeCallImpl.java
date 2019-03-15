@@ -19,6 +19,7 @@ public class ServiceMakeCallImpl implements ServiceMakeCall {
     public ReplyMakeCall makeCall(String sessionId, String caller, String called, Map<String, Object> extMap) {
         logger.info("umg receive ServiceMakeCall sessionId = {}, caller = {}, called = {}, extMap = {}",sessionId,caller,called,extMap);
         ReplyMakeCall replyMakeCall = new ReplyMakeCall(sessionId,0);
+        replyMakeCall.setCause("make call normal");
         logger.info("umg reply ReplyMakeCall {}",replyMakeCall);
         return replyMakeCall;
     }

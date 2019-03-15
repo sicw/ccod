@@ -1,6 +1,6 @@
 package com.channelsoft.ucds;
 
-import com.channelsoft.common.util.redis.JedisUtil;
+import com.channelsoft.common.redis.JedisUtil;
 import org.junit.Test;
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisCluster;

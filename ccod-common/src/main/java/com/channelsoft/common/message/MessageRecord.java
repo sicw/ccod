@@ -58,4 +58,14 @@ public class MessageRecord {
     public Object getAttribute(String key){
         return extMap.get(key);
     }
+
+    @Override
+    public String toString() {
+        return "MessageRecord{" +
+                "sessionId='" + sessionId + '\'' +
+                ", recordFileName='" + recordFileName + '\'' +
+                ", side='" + side + '\'' +
+                ", extMap=" + extMap +
+                '}';
+    }
 }

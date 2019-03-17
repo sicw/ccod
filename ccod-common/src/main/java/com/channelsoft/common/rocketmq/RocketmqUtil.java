@@ -50,9 +50,9 @@ public class RocketmqUtil {
     }
 
     public static void createConsumer(MessageListenerOrderly messageListener){
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("ConsumerGroupName");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("CmsConsumer");
         consumer.setNamesrvAddr("10.130.41.36:9876");
-        consumer.setInstanceName("Consumer1");
+        consumer.setInstanceName("CmsConsumer1");
         consumer.setMessageModel(MessageModel.CLUSTERING);
         consumer.setConsumeThreadMin(1);
         consumer.setConsumeThreadMax(1);
@@ -66,9 +66,9 @@ public class RocketmqUtil {
     }
 
     public static void createConsumerUpStream(MessageListenerOrderly messageListener){
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("ConsumerGroupName");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("UcdsConsumer");
         consumer.setNamesrvAddr("10.130.41.36:9876");
-        consumer.setInstanceName("Consumer2");
+        consumer.setInstanceName("UcdsConsumer1");
         consumer.setMessageModel(MessageModel.CLUSTERING);
         consumer.setConsumeThreadMin(1);
         consumer.setConsumeThreadMax(1);

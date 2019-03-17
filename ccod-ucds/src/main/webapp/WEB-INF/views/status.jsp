@@ -22,7 +22,7 @@
             // 如何发送agentID和sessionID
             // agentID在登陆时会保存到session中
             // 在点击makeCall时会创建sessionID，保存到redis中。
-            url:'http://localhost:8081/ajax?username=${requestScope.username}&sessionId=${requestScope.sessionId}',
+            url:'http://localhost:8081/ccod-ucds/ajax?username=${requestScope.username}&sessionId=${requestScope.sessionId}',
             dataType:'json',
             success:function(res) {
                 console.log(res);

@@ -1,5 +1,6 @@
 package com.channelsoft.common.reply;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,7 +8,7 @@ import java.util.Map;
  * @author sicwen
  * @date 2019/03/11
  */
-public class ReplyDropCall {
+public class ReplyDropCall implements Serializable {
     private String sessionId;
     private String side;
     private int causeCode;
@@ -68,5 +69,14 @@ public class ReplyDropCall {
         return extMap.get(key);
     }
 
-
+    @Override
+    public String toString() {
+        return "ReplyDropCall{" +
+                "sessionId='" + sessionId + '\'' +
+                ", side='" + side + '\'' +
+                ", causeCode=" + causeCode +
+                ", cause='" + cause + '\'' +
+                ", extMap=" + extMap +
+                '}';
+    }
 }

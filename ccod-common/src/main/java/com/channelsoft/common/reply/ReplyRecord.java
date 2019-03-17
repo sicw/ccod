@@ -1,5 +1,6 @@
 package com.channelsoft.common.reply;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,7 +8,7 @@ import java.util.Map;
  * @author sicwen
  * @date 2019/03/11
  */
-public class ReplyRecord {
+public class ReplyRecord implements Serializable {
     private String sessionId;
     private String side;
     private int causeCode;
@@ -68,4 +69,14 @@ public class ReplyRecord {
         return extMap.get(key);
     }
 
+    @Override
+    public String toString() {
+        return "ReplyRecord{" +
+                "sessionId='" + sessionId + '\'' +
+                ", side='" + side + '\'' +
+                ", causeCode=" + causeCode +
+                ", cause='" + cause + '\'' +
+                ", extMap=" + extMap +
+                '}';
+    }
 }

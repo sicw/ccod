@@ -14,7 +14,7 @@
 
 用户：${requestScope.username}
 
-<form action="/makecall" method="GET">
+<form action="/ccod-ucds/makecall" method="GET">
 	<input type="hidden" name="username" value="${requestScope.username}" hidden/>
     主叫<br/>
     <input type="text" name="caller">
@@ -25,48 +25,48 @@
     <input type="hidden" name="agentid" value="1001">
     <input type="submit" value="呼叫">
 </form>
-<form action="/dropcall" method="GET">
+<form action="/ccod-ucds/dropcall" method="GET">
     <input type="hidden" name="agentid" value="1001">
     <input type="submit" value="挂断">
 </form>
 
 <span id="advanced">
-			<form action="/upload" method="GET">
+			<form action="/ccod-ucds/upload" method="GET">
 				<input type="hidden" name="agentid" value="1001">
 				<input type="submit" value="保存记录">
 			</form>
 
-			<form action="/lookupfile" method="GET">
+			<form action="/ccod-ucds/lookupfile" method="GET">
 				<input type="hidden" name="agentid" value="1001">
 				<input type="submit" value="查找记录">
 			</form>
 
-			<form action="/lookup" method="GET">
+			<form action="/ccod-ucds/lookup" method="GET">
 				<input type="hidden" name="monitorid" value="1010">
 				<input type="submit" value="查看正在通话">
 			</form>
 
-			<form action="/lookupactiveagent" method="GET">
+			<form action="/ccod-ucds/lookupactiveagent" method="GET">
 				<input type="hidden" name="agentid" value="1001">
 				<input type="submit" value="监听">
 			</form>
 
-			<form action="/lookupactiveagent" method="GET">
+			<form action="/ccod-ucds/lookupactiveagent" method="GET">
 				<input type="hidden" name="agentid" value="1001">
 				<input type="submit" value="强插">
 			</form>
 
-			<form action="/lookupactiveagent" method="GET">
+			<form action="/ccod-ucds/lookupactiveagent" method="GET">
 				<input type="hidden" name="agentid" value="1001">
 				<input type="submit" value="强拆">
 			</form>
 
-			<form action="/lookupactiveagent" method="GET">
+			<form action="/ccod-ucds/lookupactiveagent" method="GET">
 				<input type="hidden" name="agentid" value="1001">
 				<input type="submit" value="咨询">
 			</form>
 
-			<form action="/meet" method="GET">
+			<form action="/ccod-ucds/meet" method="GET">
 				<input type="hidden" name="agentid" value="1001">
 				<input type="hidden" name="agentid" value="1002">
 				<input type="hidden" name="agentid" value="1003">

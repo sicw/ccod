@@ -20,8 +20,13 @@
     <dubbo:protocol name="dubbo" port="20880" />
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="com.channelsoft.common.service.ServiceMakeCall" ref="makeCall" />
-
+    <dubbo:service interface="com.channelsoft.common.service.ServiceMakeCall" ref="makeCall"/>
     <!-- 和本地bean一样实现服务 -->
-    <bean id="makeCall" class="com.channelsoft.umg.service.impl.ServiceMakeCallImpl" />
+    <bean id="makeCall" class="com.channelsoft.umg.service.impl.ServiceMakeCallImpl"/>
+
+    <dubbo:service interface="com.channelsoft.common.service.ServiceRecord" ref="record"/>
+    <bean id="record" class="com.channelsoft.umg.service.impl.ServiceRecordImpl"/>
+
+    <dubbo:service interface="com.channelsoft.common.service.ServiceDropCall" ref="dropcall"/>
+    <bean id="dropcall" class="com.channelsoft.umg.service.impl.ServiceDropCallImpl"/>
 </beans>

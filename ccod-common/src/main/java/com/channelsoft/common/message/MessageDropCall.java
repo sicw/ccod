@@ -48,4 +48,13 @@ public class MessageDropCall {
     public Object getAttribute(String key){
         return extMap.get(key);
     }
+
+    @Override
+    public String toString() {
+        return "MessageDropCall{" +
+                "sessionId='" + sessionId + '\'' +
+                ", side='" + side + '\'' +
+                ", extMap=" + extMap +
+                '}';
+    }
 }

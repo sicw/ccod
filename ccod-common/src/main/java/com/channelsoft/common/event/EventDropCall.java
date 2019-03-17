@@ -67,4 +67,15 @@ public class EventDropCall {
     public Object getAttribute(String key){
         return extMap.get(key);
     }
+
+    @Override
+    public String toString() {
+        return "EventDropCall{" +
+                "sessionId='" + sessionId + '\'' +
+                ", side='" + side + '\'' +
+                ", causeCode=" + causeCode +
+                ", cause='" + cause + '\'' +
+                ", extMap=" + extMap +
+                '}';
+    }
 }

@@ -47,4 +47,6 @@
 
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
     <dubbo:reference id="serviceMakeCall" timeout="50000" interface="com.channelsoft.common.service.ServiceMakeCall" />
+    <dubbo:reference id="serviceRecord" timeout="50000" interface="com.channelsoft.common.service.ServiceRecord" />
+    <dubbo:reference id="serviceDropCall" timeout="50000" interface="com.channelsoft.common.service.ServiceDropCall" />
 </beans>
